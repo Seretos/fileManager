@@ -21,7 +21,7 @@ Add this repository to your composer.json as below:
     ...
     "require": {
         ...
-        "Seretos/fileManager": "0.1.0",
+        "Seretos/fileManager": "v0.1.0",
     }
 }
 ```
