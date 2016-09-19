@@ -24,8 +24,8 @@ function array_map ($argument1, $argument2) {
     FileManagerTest::$functions['array_map']['argument'] = [$argument1, $argument2];
 }
 
-function mkdir ($argument1, $argument2, $argument3, $argument4) {
-    FileManagerTest::$functions['mkdir']['argument'] = [$argument1, $argument2, $argument3, $argument4];
+function mkdir ($argument1, $argument2, $argument3) {
+    FileManagerTest::$functions['mkdir']['argument'] = [$argument1, $argument2, $argument3];
 
     return FileManagerTest::$functions['mkdir']['result'];
 }
@@ -78,8 +78,8 @@ class FileManagerTest extends \PHPUnit_Framework_TestCase {
     public function createDirectory () {
         self::$functions['mkdir']['result'] = 'test1';
 
-        $this->assertSame('test1', $this->manager->createDirectory('myDirectory', 123, true, 'test'));
-        $this->assertSame(['mkdir' => ['result' => 'test1', 'argument' => ['myDirectory', 123, true, 'test']]],
+        $this->assertSame('test1', $this->manager->createDirectory('myDirectory', 123, true));
+        $this->assertSame(['mkdir' => ['result' => 'test1', 'argument' => ['myDirectory', 123, true]]],
                           self::$functions);
     }
 

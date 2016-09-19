@@ -18,8 +18,8 @@ class FileManager {
         array_map('unlink', glob($directory."*.*"));
     }
 
-    public function createDirectory ($directory, $mode = 0777, $recursive = false, $context = null) {
-        return mkdir($directory, $mode, $recursive, $context);
+    public function createDirectory ($directory, $mode = 0777, $recursive = false) {
+        return mkdir($directory, $mode, $recursive);
     }
 
     public function getClassName ($class) {
