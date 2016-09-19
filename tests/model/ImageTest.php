@@ -5,7 +5,7 @@
  * Date: 19.09.16
  * Time: 16:04
  */
-namespace fileManager\model;
+namespace fileManager;
 
 use PHPUnit_Framework_TestCase;
 

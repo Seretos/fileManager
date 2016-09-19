@@ -1,14 +1,14 @@
-
-
-Code Coverage Report:     
-  2016-09-19 16:06:10     
-                          
- Summary:                 
-  Classes: 100.00% (2/2)  
-  Methods: 100.00% (16/16)
-  Lines:   100.00% (27/27)
-
-\fileManager::FileManager
-  Methods: 100.00% ( 4/ 4)   Lines: 100.00% (  5/  5)
-\fileManager\model::Image
-  Methods: 100.00% (12/12)   Lines: 100.00% ( 22/ 22)
+
+
+Code Coverage Report:     
+  2016-09-19 22:23:22     
+                          
+ Summary:                 
+  Classes: 100.00% (2/2)  
+  Methods: 100.00% (16/16)
+  Lines:   100.00% (27/27)
+
+\fileManager::FileManager
+  Methods: 100.00% ( 4/ 4)   Lines: 100.00% (  5/  5)
+\fileManager::Image
+  Methods: 100.00% (12/12)   Lines: 100.00% ( 22/ 22)
