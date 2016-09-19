@@ -21,4 +21,8 @@ class FileManager {
     public function createDirectory ($directory, $mode = 0777, $recursive = false, $context = null) {
         return mkdir($directory, $mode, $recursive, $context);
     }
+
+    public function getClassName ($class) {
+        return get_class($class);
+    }
 }

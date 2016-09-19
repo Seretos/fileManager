@@ -30,6 +30,12 @@ function mkdir ($argument1, $argument2, $argument3, $argument4) {
     return FileManagerTest::$functions['mkdir']['result'];
 }
 
+function get_class ($class) {
+    FileManagerTest::$functions['get_class']['argument'] = $class;
+
+    return FileManagerTest::$functions['get_class']['result'];
+}
+
 class FileManagerTest extends \PHPUnit_Framework_TestCase {
     public static $functions;
 
@@ -74,6 +80,16 @@ class FileManagerTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertSame('test1', $this->manager->createDirectory('myDirectory', 123, true, 'test'));
         $this->assertSame(['mkdir' => ['result' => 'test1', 'argument' => ['myDirectory', 123, true, 'test']]],
+                          self::$functions);
+    }
+
+    /**
+     * @test
+     */
+    public function getClassName () {
+        self::$functions['get_class']['result'] = 'testClass';
+        $this->assertSame('testClass', $this->manager->getClassName('myClass'));
+        $this->assertSame(['get_class' => ['result' => 'testClass', 'argument' => 'myClass']],
                           self::$functions);
     }
 }

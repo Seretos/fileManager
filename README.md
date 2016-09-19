@@ -36,4 +36,5 @@ $manager = new FileManager();
 $manager->fileExists('path/to/file.ext');                       //check if the file exists
 $manager->clearDirectory('path/to/directory');                  //remove all files contained in this directory
 $manager->createDirectory('path/to/directory',0777,true,null);  //create a directory
+$manager->getClassName($myClass);                               //returns the name of an class object
 ```
