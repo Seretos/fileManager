@@ -15,6 +15,7 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <file>FileManager.php</file>
+            <directory>model</directory>
         </whitelist>
     </filter>
 </phpunit>
