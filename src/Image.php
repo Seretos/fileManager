@@ -6,7 +6,7 @@
  * Time: 00:20
  */
 
-namespace fileManager\model;
+namespace fileManager;
 
 
 class Image {
