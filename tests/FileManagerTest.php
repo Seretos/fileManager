@@ -56,6 +56,7 @@ class FileManagerTest extends \PHPUnit_Framework_TestCase {
      * @test
      */
     public function fileExists_method () {
+        $this->fail('failed');
         self::$functions['file_exists']['result'] = 'test1';
 
         $this->assertSame('test1', $this->manager->fileExists('myFile'));
