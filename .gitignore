@@ -1,0 +1,6 @@
+/composer.phar
+/composer.lock
+/cache.properties
+/vendor/
+/build/
+/.idea/
