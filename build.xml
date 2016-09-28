@@ -7,7 +7,7 @@
     <property name="phpdox" value="phpdox"/>
     <property name="phploc" value="phploc"/>
     <property name="phpmd" value="phpmd"/>
-    <property name="phpunit" value="phpunit"/>
+    <property name="phpunit" value="vendor/bin/phpunit"/>
 
     <target name="full-build"
             depends="prepare,static-analysis,phpunit,phpdox,-check-failure"
