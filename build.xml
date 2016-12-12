@@ -10,7 +10,7 @@
     <property name="phpunit" value="vendor/bin/phpunit"/>
 
     <target name="full-build"
-            depends="composer,prepare,static-analysis,phpunit,phpdox,-check-failure"
+            depends="composerUpdate,prepare,static-analysis,phpunit,phpdox,-check-failure"
             description="Performs static analysis, runs the tests, and generates project documentation"/>
 
     <target name="static-analysis"
@@ -33,8 +33,12 @@
             dest="composer.phar" 
             verbose="true"
             usetimestamp="true"/>
-        <exec executable="php">
-            <arg path="composer.phar update"/>
+    </target>
+    
+    <target name="composerUpdate" depends="composer">
+        <exec executable="php">             
+            <arg value="composer.phar"/>             
+            <arg value="update"/>         
         </exec>
     </target>
     
