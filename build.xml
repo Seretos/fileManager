@@ -207,6 +207,8 @@
             <arg path="${basedir}/phpunit.xml.dist"/>
             <arg value="--bootstrap"/>
             <arg path="${basedir}/vendor/autoload.php"/>
+            <arg value="--coverage-html"/>
+            <arg path="${basedir}/build/coverage"/>
         </exec>
 
         <property name="phpunit.done" value="true"/>
