@@ -34,7 +34,7 @@
             verbose="true"
             usetimestamp="true"/>
         <exec executable="php">
-            <arg path="composer.phar"/>
+            <arg path="${basedir}/composer.phar"/>
             <arg path="update"/>
         </exec>
     </target>
