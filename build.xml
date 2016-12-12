@@ -10,7 +10,7 @@
     <property name="phpunit" value="vendor/bin/phpunit"/>
 
     <target name="full-build"
-            depends="prepare,static-analysis,phpunit,phpdox,-check-failure"
+            depends="composer,prepare,static-analysis,phpunit,phpdox,-check-failure"
             description="Performs static analysis, runs the tests, and generates project documentation"/>
 
     <target name="static-analysis"
@@ -27,7 +27,18 @@
         <delete dir="${basedir}/build/phpdox"/>
         <property name="clean.done" value="true"/>
     </target>
-
+    
+    <target name="composer">
+        <get src="http://getcomposer.org/composer.phar" 
+            dest="KEYS" 
+            verbose="true"
+            usetimestamp="true"/>
+        <exec executable="php">
+            <arg path="composer.phar"/>
+            <arg path="update"/>
+        </exec>
+    </target>
+    
     <target name="prepare"
             unless="prepare.done"
             depends="clean"
