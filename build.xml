@@ -30,7 +30,7 @@
     
     <target name="composer">
         <get src="http://getcomposer.org/composer.phar" 
-            dest="KEYS" 
+            dest="composer.phar" 
             verbose="true"
             usetimestamp="true"/>
         <exec executable="php">
