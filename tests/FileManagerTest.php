@@ -55,41 +55,41 @@ class FileManagerTest extends \PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function fileExists_method () {
+    /*public function fileExists_method () {
         self::$functions['file_exists']['result'] = 'test1';
 
         $this->assertSame('test1', $this->manager->fileExists('myFile'));
         $this->assertSame(['file_exists' => ['result' => 'test1', 'argument' => 'myFile']], self::$functions);
-    }
+    }*/
 
     /**
      * @test
      */
-    public function clearDirectory () {
+    /*public function clearDirectory () {
         $this->manager->clearDirectory('myDirectory');
         $this->assertSame(['glob' => ['argument' => 'myDirectory*.*'],
                            'array_map' => ['argument' => ['unlink', 'glob']]],
                           self::$functions);
-    }
+    }*/
 
     /**
      * @test
      */
-    public function createDirectory () {
+    /*public function createDirectory () {
         self::$functions['mkdir']['result'] = 'test1';
 
         $this->assertSame('test1', $this->manager->createDirectory('myDirectory', 123, true));
         $this->assertSame(['mkdir' => ['result' => 'test1', 'argument' => ['myDirectory', 123, true]]],
                           self::$functions);
-    }
+    }*/
 
     /**
      * @test
      */
-    public function getClassName () {
+    /*public function getClassName () {
         self::$functions['get_class']['result'] = 'testClass';
         $this->assertSame('testClass', $this->manager->getClassName('myClass'));
         $this->assertSame(['get_class' => ['result' => 'testClass', 'argument' => 'myClass']],
                           self::$functions);
-    }
+    }*/
 }
