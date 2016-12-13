@@ -1,4 +1,5 @@
 node {
+    deleteDir()
     stage('Preparation') {
         env.PATH = "${tool 'Ant'}/bin:${env.PATH}"
 
