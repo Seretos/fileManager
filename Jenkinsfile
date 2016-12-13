@@ -3,7 +3,8 @@ node {
         env.PATH = "${tool 'Ant'}/bin:${env.PATH}"
 
         //download the git repository
-        git 'https://github.com/Seretos/fileManager'
+        //git 'https://github.com/Seretos/fileManager'
+        checkout scm
     }
     stage('Validation'){
         //execute apache ant build bot
@@ -13,7 +14,7 @@ node {
         junit 'build/logs/junit.xml'
 
         step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', pattern: '**/build/logs/checkstyle.xml'])
-        step([$class: 'CloverPublisher', cloverReportDir: 'build/logs', cloverReportFileName: 'clover.xml'])
+        //step([$class: 'CloverPublisher', cloverReportDir: 'build/logs', cloverReportFileName: 'clover.xml'])
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'build/coverage/', reportFiles: 'index.html', reportName: 'code coverage'])
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'build/api/', reportFiles: 'index.html', reportName: 'phpdox'])
     }
