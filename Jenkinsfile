@@ -12,7 +12,6 @@ node {
     stage('Results'){
         junit 'build/logs/junit.xml'
 
-        sh "mvn clean clover2:setup test clover2:aggregate clover2:clover"
         step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', pattern: '**/build/logs/checkstyle.xml'])
         step([$class: 'CloverPublisher', cloverReportDir: 'build/logs', cloverReportFileName: 'clover.xml'])
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'build/coverage/', reportFiles: 'index.html', reportName: 'code coverage'])
