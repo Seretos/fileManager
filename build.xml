@@ -37,6 +37,10 @@
             dest="phploc.phar" 
             verbose="true"
             usetimestamp="true"/>
+        <get src="http://static.pdepend.org/php/latest/pdepend.phar" 
+            dest="pdepend.phar" 
+            verbose="true"
+            usetimestamp="true"/>
     </target>
 
     <target name="composerUpdate" depends="dependencyApps">
@@ -114,7 +118,8 @@
             unless="pdepend.done"
             depends="prepare"
             description="Calculate software metrics using PHP_Depend and log result in XML format. Intended for usage within a continuous integration environment.">
-        <exec executable="${pdepend}" taskname="pdepend">
+        <exec executable="php" taskname="pdepend">
+            <arg value="pdepend.phar"/>
             <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml"/>
             <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg"/>
             <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg"/>
