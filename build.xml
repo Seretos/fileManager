@@ -41,6 +41,10 @@
             dest="pdepend.phar" 
             verbose="true"
             usetimestamp="true"/>
+        <get src="http://static.phpmd.org/php/latest/phpmd.phar"
+             dest="phpmd.phar"
+             verbose="true"
+             usetimestamp="true"/>
     </target>
 
     <target name="composerUpdate" depends="dependencyApps">
@@ -132,7 +136,8 @@
     <target name="phpmd"
             unless="phpmd.done"
             description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
-        <exec executable="${phpmd}" taskname="phpmd">
+        <exec executable="php" taskname="phpmd">
+            <arg value="phpmd.phar"/>
             <arg path="${basedir}/src"/>
             <arg value="text"/>
             <arg path="${basedir}/phpmd.xml"/>
@@ -145,7 +150,8 @@
             unless="phpmd.done"
             depends="prepare"
             description="Perform project mess detection using PHPMD and log result in XML format. Intended for usage within a continuous integration environment.">
-        <exec executable="${phpmd}" taskname="phpmd">
+        <exec executable="php" taskname="phpmd">
+            <arg value="phpmd.phar"/>
             <arg path="${basedir}/src"/>
             <arg value="xml"/>
             <arg path="${basedir}/phpmd.xml"/>
