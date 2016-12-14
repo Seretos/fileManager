@@ -49,6 +49,10 @@
              dest="phpcpd.phar"
              verbose="true"
              usetimestamp="true"/>
+        <get src="http://phpdox.de/releases/phpdox.phar"
+             dest="phpdox.phar"
+             verbose="true"
+             usetimestamp="true"/>
     </target>
 
     <target name="composerUpdate" depends="dependencyApps">
@@ -255,7 +259,9 @@
             unless="phpdox.done"
             depends="phploc-ci,phpcs-ci,phpmd-ci"
             description="Generate project documentation using phpDox">
-        <exec executable="${phpdox}" dir="${basedir}" taskname="phpdox"/>
+        <exec executable="php" dir="${basedir}">
+            <arg value="phpdox.phar"/>
+        </exec>
 
         <property name="phpdox.done" value="true"/>
     </target>
