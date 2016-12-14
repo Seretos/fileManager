@@ -45,6 +45,10 @@
              dest="phpmd.phar"
              verbose="true"
              usetimestamp="true"/>
+        <get src="https://phar.phpunit.de/phpcpd.phar"
+             dest="phpcpd.phar"
+             verbose="true"
+             usetimestamp="true"/>
     </target>
 
     <target name="composerUpdate" depends="dependencyApps">
@@ -196,7 +200,8 @@
     <target name="phpcpd"
             unless="phpcpd.done"
             description="Find duplicate code using PHPCPD and print human readable output. Intended for usage on the command line before committing.">
-        <exec executable="${phpcpd}" taskname="phpcpd">
+        <exec executable="php" taskname="phpcpd">
+            <arg value="phpcpd.phar"/>
             <arg path="${basedir}/src"/>
         </exec>
 
@@ -207,7 +212,8 @@
             unless="phpcpd.done"
             depends="prepare"
             description="Find duplicate code using PHPCPD and log result in XML format. Intended for usage within a continuous integration environment.">
-        <exec executable="${phpcpd}" taskname="phpcpd">
+        <exec executable="php" taskname="phpcpd">
+            <arg value="phpcpd.phar"/>
             <arg value="--log-pmd"/>
             <arg path="${basedir}/build/logs/pmd-cpd.xml"/>
             <arg path="${basedir}/src"/>
