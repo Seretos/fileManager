@@ -94,9 +94,10 @@
 
     <target name="phploc-ci"
             unless="phploc.done"
-            depends="prepare"
+            depends="prepare,dependencyApps"
             description="Measure project size using PHPLOC and log result in CSV and XML format. Intended for usage within a continuous integration environment.">
-        <exec executable="${phploc}" taskname="phploc">
+        <exec executable="php" taskname="phploc">
+            <arg value="phploc.phar"/>
             <arg value="--count-tests"/>
             <arg value="--log-csv"/>
             <arg path="${basedir}/build/logs/phploc.csv"/>
