@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="visualSelenium" default="full-build">
+<project name="fileManager" default="full-build">
     <!-- By default, we assume all tools to be on the $PATH -->
     <property name="pdepend" value="pdepend"/>
     <property name="phpcpd" value="phpcpd"/>
@@ -28,14 +28,18 @@
         <property name="clean.done" value="true"/>
     </target>
     
-    <target name="composer">
+    <target name="dependencyApps">
         <get src="http://getcomposer.org/composer.phar" 
             dest="composer.phar" 
             verbose="true"
             usetimestamp="true"/>
+        <get src="https://phar.phpunit.de/phploc.phar" 
+            dest="phploc.phar" 
+            verbose="true"
+            usetimestamp="true"/>
     </target>
-    
-    <target name="composerUpdate" depends="composer">
+
+    <target name="composerUpdate" depends="dependencyApps">
         <exec executable="php">             
             <arg value="composer.phar"/>             
             <arg value="update"/>         
@@ -76,8 +80,10 @@
 
     <target name="phploc"
             unless="phploc.done"
-            description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
-        <exec executable="${phploc}" taskname="phploc">
+            description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line."
+            depends="dependencyApps">
+        <exec executable="php" taskname="phploc">
+            <arg value="phploc.phar"/>
             <arg value="--count-tests"/>
             <arg path="${basedir}/src"/>
             <arg path="${basedir}/tests"/>
