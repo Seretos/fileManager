@@ -51,13 +51,6 @@ class FileManagerTest extends \PHPUnit_Framework_TestCase {
 
         self::$functions = [];
     }
-
-    /**
-     * @test
-     */
-    public function errorMethod(){
-        $this->assertEquals(1,2);
-    }
     
     /**
      * @test
